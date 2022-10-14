@@ -32,7 +32,11 @@ pipeline{
                 sh 'mvn clean'
             }
         }
-
+            stage('MVN Build'){
+            steps {
+                sh 'mvn build'
+            }
+        }
        
              stage('MVN INSTALL') {
             steps {
