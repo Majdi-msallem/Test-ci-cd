@@ -19,31 +19,7 @@ pipeline{
             }
      
    
-        stage('git clone') {
-            steps {
-               git branch: 'main', 
-               url: 'https://github.com/Majdi-msallem/Test-ci-cd.git'
         
-            }
-        }
-        
-       stage('MVN CLEAN'){
-            steps {
-                sh 'mvn clean'
-            }
-        }
-            stage('MVN Build'){
-            steps {
-                sh 'mvn build'
-            }
-        }
-       
-             stage('MVN INSTALL') {
-            steps {
-                sh 'mvn install'
-
-            }
-        }
            stage('Building our image') { 
             steps { 
                 script { 
