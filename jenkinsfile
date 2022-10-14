@@ -1,0 +1,47 @@
+properties([pipelineTriggers([githubPush()])])
+pipeline{
+    agent any 
+          tools { 
+        maven "M2_HOME" 
+        }
+        environment {
+    registry = "majdimsallem/candidate"
+        registryCredential='dockerhub_id'
+        dockerImage=''
+    }
+        stages {
+            stage('Checkout GIT ') {
+                steps {
+                    echo 'Pulling ...';
+                    git branch : 'main',
+                    url : 'https://github.com/Majdi-msallem/Test-ci-cd.git'
+                }
+            }
+     
+   
+        stage('git clone') {
+            steps {
+               git branch: 'main', 
+               url: 'https://github.com/Majdi-msallem/Test-ci-cd.git'
+        
+            }
+        }
+        
+       stage('MVN CLEAN'){
+            steps {
+                sh 'mvn clean'
+            }
+        }
+
+       
+             stage('MVN INSTALL') {
+            steps {
+                sh 'mvn install'
+
+            }
+        }
+         
+        
+        
+        }
+}
