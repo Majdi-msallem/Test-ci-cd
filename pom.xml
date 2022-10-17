@@ -84,7 +84,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 					<distributionManagement>
   					  <snapshotRepository>
-   					    <id>nexus-snapshots</id>
+   					    <id>deploymentRepo</id>
      					    <url>http://http://192.168.1.13:8081//nexus/content/repositories/snapshots</url>
    					  </snapshotRepository>
 					</distributionManagement>
