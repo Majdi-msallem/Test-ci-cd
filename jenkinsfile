@@ -41,7 +41,7 @@ stage('git clone') {
         
          stage('MVN Nexus'){
             steps {
-                sh 'mvn deploy  -DskipTests=true'
+                sh 'mvn deploy -e -X -DskipTests=true'
             }
         }
         
