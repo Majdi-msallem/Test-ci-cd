@@ -84,9 +84,11 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 			<plugin>
-				<artifactId>maven-deploy-plugin</artifactId>
-				<version>3.0.0</version>
-			</plugin>
+	<groupId>org.mule.tools.maven</groupId>
+	<artifactId>mule-app-maven-plugin</artifactId>
+	<version>1.7</version>
+	<extensions>true</extensions>
+</plugin>
 		
 		</plugins>
 	</build>
