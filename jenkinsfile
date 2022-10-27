@@ -51,7 +51,24 @@ stage('git clone') {
                 }
             }
         }
-        stage("Publish to Nexus Repository Manager") {
+        
+        
+             stage('SonarQube analysis') {
+//    def scannerHome = tool 'SonarScanner 4.0';
+        steps{
+        withSonarQubeEnv('sonarqube-8.9.7') { 
+        // If you have configured more than one global server connection, you can specify its name
+//      sh "${scannerHome}/bin/sonar-scanner"
+        sh "mvn sonar:sonar"
+    }
+        }
+        }
+        
+        
+        
+        
+        
+      /*   stage("Publish to Nexus Repository Manager") {
             steps {
                 script {
                     pom = readMavenPom file: "pom.xml";
@@ -85,23 +102,9 @@ stage('git clone') {
                     }
                 }
             }
-        }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-      /*      stage('MVN Nexus'){
+        }       
+
+           stage('MVN Nexus'){
             steps {
                 sh 'mvn deploy -e -X -DskipTests=true'
             }
@@ -125,16 +128,7 @@ stage('git clone') {
                 } 
             }
         } 
-        stage('SonarQube analysis') {
-//    def scannerHome = tool 'SonarScanner 4.0';
-        steps{
-        withSonarQubeEnv('sonarqube-8.9.7') { 
-        // If you have configured more than one global server connection, you can specify its name
-//      sh "${scannerHome}/bin/sonar-scanner"
-        sh "mvn sonar:sonar"
-    }
-        }
-        }
+   
        
         stage('Cleaning up') { 
             steps { 
