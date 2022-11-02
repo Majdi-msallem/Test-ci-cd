@@ -68,7 +68,7 @@ stage('git clone') {
         
         
         
-      /*   stage("Publish to Nexus Repository Manager") {
+         stage("Publish to Nexus Repository Manager") {
             steps {
                 script {
                     pom = readMavenPom file: "pom.xml";
@@ -112,7 +112,7 @@ stage('git clone') {
         
         
           
-          stage('Building our image') { 
+     /*     stage('Building our image') { 
             steps { 
                 script { 
                     dockerImage = docker.build registry + ":$BUILD_NUMBER" 
